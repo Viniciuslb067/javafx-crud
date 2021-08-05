@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
@@ -75,7 +77,7 @@ public class Controller implements Initializable {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/database?useTimezone=true&serverTimezone=UTC", "root", "123");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/database?useTimezone=true&serverTimezone=UTC", "root", "admin");
             return conn;
         } catch (Exception ex) {
             System.out.println("Error on connection: " + ex.getMessage());
@@ -111,6 +113,32 @@ public class Controller implements Initializable {
 
     }
 
+    private String generateMatricula() {
+        String matricula = "20210800";
+        String digito = "1";
+
+        String prefixoString = matricula.substring(0, 6);
+
+        String sufixoString = matricula.substring(matricula.length() - 1);
+        int prefixoInt = Integer.parseInt(prefixoString);
+
+
+        if (sufixoString.equals("9")) {
+            sufixoString = "X";
+        } else if (sufixoString.equals("X")) {
+            sufixoString = "0";
+            prefixoInt += 1;
+        } else {
+            int sufixoInt = Integer.parseInt(sufixoString);
+            sufixoString = String.valueOf(sufixoInt + 1);
+        }
+
+        String novaMatricula = prefixoInt + digito + sufixoString;
+
+        return novaMatricula;
+
+    }
+
     public void showAlunos() {
         ObservableList<Alunos> list = getAlunosList();
 
@@ -121,16 +149,18 @@ public class Controller implements Initializable {
 
         tvAlunos.setItems(list);
 
+        System.out.println(generateMatricula());
+
     }
 
     private void insertRecord() {
-        String query = "INSERT INTO alunos(matricula, nome, idade) VALUES ('"+ tfMatricula.getText() + "','" + tfNome.getText() + "','" + tfIdade.getText() + "')";
+        String query = "INSERT INTO alunos(matricula, nome, idade) VALUES ('" + generateMatricula() + "','" + tfNome.getText() + "','" + tfIdade.getText() + "')";
         executeQuery(query);
         showAlunos();
     }
 
     private void deleteById() {
-        String query = "DELETE FROM alunos WHERE id = " +tfId.getText();
+        String query = "DELETE FROM alunos WHERE id = " + tfId.getText();
         executeQuery(query);
         showAlunos();
     }
