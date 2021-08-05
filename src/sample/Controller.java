@@ -51,9 +51,18 @@ public class Controller implements Initializable {
     @FXML
     public void handleButtonAction(ActionEvent event) {
 
-        if(event.getSource() == btnCadastrar) {
+        if (event.getSource() == btnCadastrar) {
             insertRecord();
         }
+
+        if (event.getSource() == btnExcluir) {
+            deleteById();
+        }
+
+        if (event.getSource() == btnAtualizar) {
+            updateById();
+        }
+
     }
 
     @Override
@@ -116,6 +125,18 @@ public class Controller implements Initializable {
 
     private void insertRecord() {
         String query = "INSERT INTO alunos(matricula, nome, idade) VALUES ('"+ tfMatricula.getText() + "','" + tfNome.getText() + "','" + tfIdade.getText() + "')";
+        executeQuery(query);
+        showAlunos();
+    }
+
+    private void deleteById() {
+        String query = "DELETE FROM alunos WHERE id = " +tfId.getText();
+        executeQuery(query);
+        showAlunos();
+    }
+
+    private void updateById() {
+        String query = "UPDATE alunos SET matricula = " + tfMatricula.getText() + ", nome = '" + tfNome.getText() + "', idade = " + tfIdade.getText() + "WHERE id = '" + tfId.getText();
         executeQuery(query);
         showAlunos();
     }
