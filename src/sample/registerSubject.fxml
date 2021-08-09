@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="509.0" prefWidth="763.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.registerSubjectController">
+   <children>
+      <AnchorPane prefHeight="82.0" prefWidth="763.0" style="-fx-background-color: #004AAD;">
+         <children>
+            <ImageView fitHeight="82.0" fitWidth="99.0" layoutX="47.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/INSS/IdeaProjects/POIIIFinal/src/assets/newStudent.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="152.0" layoutY="20.0" text="Adicionar novo aluno" textFill="WHITE">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="136.0" layoutY="115.0" text="Nome">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfName" layoutX="136.0" layoutY="138.0" prefHeight="25.0" prefWidth="499.0" />
+      <Label layoutX="136.0" layoutY="168.0" text="Idade">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfAge" layoutX="136.0" layoutY="191.0" prefHeight="25.0" prefWidth="499.0" />
+      <Label layoutX="137.0" layoutY="224.0" text="Telefone">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfPhone" layoutX="136.0" layoutY="248.0" prefHeight="25.0" prefWidth="499.0" />
+      <Label layoutX="137.0" layoutY="282.0" text="Telefone do responsável">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TfParentsPhone" layoutX="136.0" layoutY="308.0" prefHeight="25.0" prefWidth="499.0" />
+      <Button fx:id="btnNewStudent" layoutX="180.0" layoutY="366.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="411.0" text="Cadastrar" onAction="#handleButtonAction">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="180.0" layoutY="420.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="411.0" text="Voltar" onAction="#switchToScene">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,26 +1,26 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutionException;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller implements Initializable {
 
@@ -50,6 +50,20 @@ public class Controller implements Initializable {
     @FXML
     private Button btnExcluir;
 
+    private Stage stage;
+
+    private Scene scene;
+
+   private Parent root;
+
+   public void switchToScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+   }
+
     @FXML
     public void handleButtonAction(ActionEvent event) {
 
@@ -77,7 +91,7 @@ public class Controller implements Initializable {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/database?useTimezone=true&serverTimezone=UTC", "root", "admin");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/database?useTimezone=true&serverTimezone=UTC", "root", "123");
             return conn;
         } catch (Exception ex) {
             System.out.println("Error on connection: " + ex.getMessage());
@@ -166,7 +180,8 @@ public class Controller implements Initializable {
     }
 
     private void updateById() {
-        String query = "UPDATE alunos SET matricula = " + tfMatricula.getText() + ", nome = '" + tfNome.getText() + "', idade = " + tfIdade.getText() + "WHERE id = '" + tfId.getText();
+        String query = "UPDATE alunos SET matricula = '" + tfMatricula.getText() + "', nome = '" + tfNome.getText() + "', idade = '" + tfIdade.getText() + "' WHERE id = '" + tfId.getText() + "'";
+        System.out.println(query);
         executeQuery(query);
         showAlunos();
     }
@@ -185,4 +200,14 @@ public class Controller implements Initializable {
 
     }
 
+    public void handleMouseAction(MouseEvent mouseEvent) {
+        Alunos aluno = tvAlunos.getSelectionModel().getSelectedItem();
+
+        tfId.setText("" + aluno.getId());
+        tfMatricula.setText("" + aluno.getMatricula());
+        tfNome.setText(aluno.getNome());
+        tfIdade.setText("" + aluno.getIdade());
+
+
+    }
 }
