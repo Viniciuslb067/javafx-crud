@@ -44,7 +44,7 @@ public class indexController implements Initializable {
     @FXML
     private TableColumn<Alunos, Integer> colIdade;
     @FXML
-    private Button btnCadastrar;
+    private Button btnEnter;
     @FXML
     private Button btnAtualizar;
     @FXML
@@ -58,6 +58,14 @@ public class indexController implements Initializable {
 
     public void switchToScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("registerSubject.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToSceneDashboard(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

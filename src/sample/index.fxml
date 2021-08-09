@@ -33,7 +33,7 @@
                         <Font size="13.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnEnter" layoutX="168.0" layoutY="241.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="88.0" text="Entrar">
+                <Button fx:id="btnEnter" layoutX="168.0" layoutY="241.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="88.0" text="Entrar" onAction="#switchToSceneDashboard">
                     <font>
                         <Font size="13.0" />
                     </font>

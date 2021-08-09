@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.dashboardController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="741.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.dashboardController">
+   <children>
+      <AnchorPane prefHeight="741.0" prefWidth="200.0" style="-fx-background-color: #004AAD;" />
+      <AnchorPane layoutX="200.0" prefHeight="94.0" prefWidth="1037.0">
+         <children>
+            <Label layoutX="53.0" layoutY="21.0" text="Alunos cadastrados">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <HBox alignment="CENTER_LEFT" layoutX="227.0" layoutY="116.0" prefHeight="53.0" prefWidth="984.0" style="-fx-background-color: #F3F3F3;">
+         <children>
+            <Label alignment="CENTER" text="Nome">
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
+            </Label>
+            <Label alignment="CENTER" text="Idade">
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
+            </Label>
+            <Label alignment="CENTER" text="Telefone">
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
+            </Label>
+            <Label alignment="CENTER" text="Telefone do responsável">
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <VBox fx:id="pnItems" layoutX="227.0" layoutY="185.0" prefHeight="541.0" prefWidth="984.0" style="-fx-background-color: green;" />
+   </children>
 </AnchorPane>

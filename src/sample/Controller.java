@@ -181,7 +181,6 @@ public class Controller implements Initializable {
 
     private void updateById() {
         String query = "UPDATE alunos SET matricula = '" + tfMatricula.getText() + "', nome = '" + tfNome.getText() + "', idade = '" + tfIdade.getText() + "' WHERE id = '" + tfId.getText() + "'";
-        System.out.println(query);
         executeQuery(query);
         showAlunos();
     }
