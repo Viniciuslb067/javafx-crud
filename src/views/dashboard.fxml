@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="741.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardController">
+   <children>
+      <AnchorPane prefHeight="741.0" prefWidth="200.0" style="-fx-background-color: #004AAD;" />
+      <AnchorPane layoutX="200.0" prefHeight="94.0" prefWidth="1037.0">
+         <children>
+            <Label layoutX="53.0" layoutY="21.0" text="Alunos cadastrados">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <VBox fx:id="pnItems" layoutX="236.0" layoutY="87.0" prefHeight="628.0" prefWidth="984.0" style="-fx-background-color: green;">
+         <children>
+            <TableView fx:id="tableStudents" prefHeight="628.0" prefWidth="977.0">
+               <columns>
+                  <TableColumn fx:id="columnName" prefWidth="245.0" text="Nome" />
+                  <TableColumn fx:id="columnAge" prefWidth="245.0" text="Idade" />
+                  <TableColumn fx:id="columnCell" prefWidth="245.0" text="Telefone" />
+                  <TableColumn fx:id="columnParentCell" prefWidth="248.0" text="Telefone do responsável" />
+               </columns>
+            </TableView>
+         </children></VBox>
+   </children>
+</AnchorPane>

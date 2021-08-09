@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("index.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/index.fxml"));
         primaryStage.setTitle("SGAD - Sistema de Gestão de Alunos e Disciplinas");
         primaryStage.setScene(new Scene(root));
 

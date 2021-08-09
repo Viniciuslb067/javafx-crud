@@ -1,4 +1,4 @@
-package sample;
+package models;
 
 public class Alunos {
 
@@ -6,12 +6,16 @@ public class Alunos {
     private Integer matricula;
     private String nome;
     private Integer idade;
+    private Integer telefone;
+    private Integer telefonePais;
 
-    public Alunos(Integer id, Integer matricula, String nome, Integer idade) {
+    public Alunos(Integer id, Integer matricula, String nome, Integer idade, Integer telefone, Integer telefonePais) {
         this.id = id;
         this.matricula = matricula;
         this.nome = nome;
         this.idade = idade;
+        this.telefone = telefone;
+        this.telefonePais = telefonePais;
     }
 
     public Integer getId() {
@@ -28,5 +32,13 @@ public class Alunos {
 
     public Integer getIdade() {
         return idade;
+    }
+
+    public Integer getTelefone() {
+        return telefone;
+    }
+
+    public Integer getTelefonePais() {
+        return telefonePais;
     }
 }

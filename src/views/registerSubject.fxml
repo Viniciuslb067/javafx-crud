@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="509.0" prefWidth="763.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.registerSubjectController">
+<AnchorPane prefHeight="509.0" prefWidth="763.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.RegisterSubjectController">
    <children>
       <AnchorPane prefHeight="82.0" prefWidth="763.0" style="-fx-background-color: #004AAD;">
          <children>
@@ -30,25 +30,25 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="tfName" layoutX="136.0" layoutY="138.0" prefHeight="25.0" prefWidth="499.0" />
+      <TextField fx:id="textFieldName" layoutX="136.0" layoutY="138.0" prefHeight="25.0" prefWidth="499.0" />
       <Label layoutX="136.0" layoutY="168.0" text="Idade">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="tfAge" layoutX="136.0" layoutY="191.0" prefHeight="25.0" prefWidth="499.0" />
+      <TextField fx:id="textFieldAge" layoutX="136.0" layoutY="191.0" prefHeight="25.0" prefWidth="499.0" />
       <Label layoutX="137.0" layoutY="224.0" text="Telefone">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="tfPhone" layoutX="136.0" layoutY="248.0" prefHeight="25.0" prefWidth="499.0" />
+      <TextField fx:id="textFieldPhone" layoutX="136.0" layoutY="248.0" prefHeight="25.0" prefWidth="499.0" />
       <Label layoutX="137.0" layoutY="282.0" text="Telefone do responsável">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="TfParentsPhone" layoutX="136.0" layoutY="308.0" prefHeight="25.0" prefWidth="499.0" />
+      <TextField fx:id="textFieldParentsPhone" layoutX="136.0" layoutY="308.0" prefHeight="25.0" prefWidth="499.0" />
       <Button fx:id="btnNewStudent" layoutX="180.0" layoutY="366.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="411.0" text="Cadastrar" onAction="#handleButtonAction">
          <font>
             <Font size="14.0" />

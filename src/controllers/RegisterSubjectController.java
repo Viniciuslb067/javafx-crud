@@ -1,7 +1,7 @@
-package sample;
+package controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.mysql.cj.jdbc.JdbcPreparedStatement;
+import database.ConnectionFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,31 +10,26 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.Alunos;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class registerSubjectController implements Initializable {
+public class RegisterSubjectController implements Initializable {
 
     private Label label;
     @FXML
-    private TextField tfName;
+    private TextField textFieldName;
     @FXML
-    private TextField tfAge;
+    private TextField textFieldAge;
     @FXML
-    private TextField tfPhone;
+    private TextField textFieldPhone;
     @FXML
-    private TextField TfParentsPhone;
-    @FXML
-    private TableView<Alunos> tvAlunos;
+    private TextField textFieldParentsPhone;
     @FXML
     private TableColumn<Alunos, Integer> colId;
     @FXML
@@ -58,40 +53,25 @@ public class registerSubjectController implements Initializable {
 
     @FXML
     public void switchToScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("index.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("../views/index.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
-    public void switchBack() throws  IOException {
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
+    public void switchBack() throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../views/dashboard.fxml"));
         Stage window = (Stage) btnNewStudent.getScene().getWindow();
         window.setScene(new Scene(root));
 
     }
 
     @FXML
-    public void handleButtonAction(ActionEvent event) throws IOException {
+    public void handleButtonAction(ActionEvent event) throws Exception {
         insertRecord();
     }
-
-    public Connection getConnection() {
-        Connection conn;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/database?useTimezone=true&serverTimezone=UTC", "root", "123");
-            return conn;
-        } catch (Exception ex) {
-            System.out.println("Error on connection: " + ex.getMessage());
-            return null;
-        }
-
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -131,15 +111,21 @@ public class registerSubjectController implements Initializable {
     }
 
 
-    private void insertRecord() throws IOException {
-        String query = "INSERT INTO alunos(matricula, nome, idade) VALUES ('" + generateMatricula() + "','" + tfName.getText() + "','" + tfAge.getText() + "')";
+    private void insertRecord() throws Exception {
+        String query = "INSERT INTO alunos(matricula, nome, idade, telefone, telefonePais) VALUES " +
+                "('" + generateMatricula() + "','" + textFieldName.getText()
+                + "','" + textFieldAge.getText() + "','" + textFieldPhone.getText() + "','" + textFieldParentsPhone.getText() + "')";
+
+        System.out.println(query);
+
         executeQuery(query);
         Information();
         switchBack();
     }
 
-    private void executeQuery(String query) {
-        Connection conn = getConnection();
+    private void executeQuery(String query) throws Exception {
+        Connection conn;
+        conn = ConnectionFactory.connectToMySql();
 
         Statement st;
 

@@ -1,7 +1,5 @@
-package sample;
+package controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,19 +8,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.Alunos;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class indexController implements Initializable {
+public class IndexController implements Initializable {
 
     private Label label;
     @FXML
@@ -57,7 +50,7 @@ public class indexController implements Initializable {
     private Parent root;
 
     public void switchToScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("registerSubject.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../views/registerSubject.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -65,7 +58,7 @@ public class indexController implements Initializable {
     }
 
     public void switchToSceneDashboard(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../views/dashboard.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

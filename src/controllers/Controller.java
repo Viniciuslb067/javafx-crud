@@ -1,4 +1,4 @@
-package sample;
+package controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.Alunos;
 
 import java.io.IOException;
 import java.net.URL;
@@ -57,7 +58,7 @@ public class Controller implements Initializable {
    private Parent root;
 
    public void switchToScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../views/main.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -91,7 +92,7 @@ public class Controller implements Initializable {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/database?useTimezone=true&serverTimezone=UTC", "root", "123");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/database?useTimezone=true&serverTimezone=UTC", "root", "admin");
             return conn;
         } catch (Exception ex) {
             System.out.println("Error on connection: " + ex.getMessage());
@@ -115,7 +116,7 @@ public class Controller implements Initializable {
             Alunos alunos;
 
             while (rs.next()) {
-                alunos = new Alunos(rs.getInt("id"), rs.getInt("matricula"), rs.getString("nome"), rs.getInt("idade"));
+                alunos = new Alunos(rs.getInt("id"), rs.getInt("matricula"), rs.getString("nome"), rs.getInt("idade"), rs.getInt("telefone"), rs.getInt("telefonePais") );
                 alunoList.add(alunos);
             }
 
