@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="509.0" prefWidth="763.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.RegisterStudentController">
+   <children>
+      <AnchorPane prefHeight="82.0" prefWidth="763.0" style="-fx-background-color: #004AAD;">
+         <children>
+            <ImageView fitHeight="82.0" fitWidth="99.0" layoutX="47.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/newStudent.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="152.0" layoutY="20.0" text="Adicionar novo aluno" textFill="WHITE">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="136.0" layoutY="103.0" prefHeight="21.0" prefWidth="57.0" text="Nome">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldName" layoutX="136.0" layoutY="128.0" prefHeight="38.0" prefWidth="499.0" />
+      <Label layoutX="136.0" layoutY="171.0" prefHeight="21.0" prefWidth="48.0" text="Idade">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldAge" layoutX="136.0" layoutY="194.0" prefHeight="38.0" prefWidth="499.0" />
+      <Label layoutX="137.0" layoutY="239.0" text="Telefone">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldPhone" layoutX="136.0" layoutY="265.0" prefHeight="38.0" prefWidth="499.0" />
+      <Label layoutX="137.0" layoutY="306.0" text="Telefone do responsável">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldParentsPhone" layoutX="136.0" layoutY="333.0" prefHeight="38.0" prefWidth="499.0" />
+      <Button fx:id="btnNewStudent" layoutX="180.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="37.0" prefWidth="411.0" style="-fx-background-color: #38b6ff;" text="Cadastrar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="180.0" layoutY="437.0" mnemonicParsing="false" onAction="#switchToScene" prefHeight="37.0" prefWidth="411.0" style="-fx-background-color: #38b6ff;" text="Voltar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

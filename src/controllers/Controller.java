@@ -67,7 +67,6 @@ public class Controller implements Initializable {
 
     @FXML
     public void handleButtonAction(ActionEvent event) {
-
         if (event.getSource() == btnCadastrar) {
             insertRecord();
         }
@@ -79,7 +78,6 @@ public class Controller implements Initializable {
         if (event.getSource() == btnAtualizar) {
             updateById();
         }
-
     }
 
     @Override

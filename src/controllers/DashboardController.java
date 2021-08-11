@@ -6,12 +6,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import models.Alunos;
 
 import java.io.IOException;
@@ -22,23 +22,48 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
     @FXML
-    private TableView<Alunos> tableStudents;
+    private Button buttonHome;
     @FXML
-    private TableColumn<Alunos, String> columnName;
+    private Button buttonStudent;
     @FXML
-    private TableColumn<Alunos, Integer> columnAge;
+    private Button buttonSubject;
     @FXML
-    private TableColumn<Alunos, Integer> columnCell;
+    private Button buttonEnroll;
     @FXML
-    private TableColumn<Alunos, Integer> columnParentCell;
+    private AnchorPane showPane;
+    @FXML
+    private Label labelTitle;
+    @FXML
+    private Parent root;
+
+    public void handleButtonAction(javafx.event.ActionEvent event) throws IOException {
+        if (event.getSource() == buttonHome) {
+            root = FXMLLoader.load(getClass().getResource("../views/index.fxml"));
+            Stage window = (Stage) buttonHome.getScene().getWindow();
+            window.setScene(new Scene(root));
+        }
+
+        if (event.getSource() == buttonStudent) {
+            labelTitle.setText("Alunos Cadastradas");
+            AnchorPane paneStudent = FXMLLoader.load(this.getClass().getResource("../views/tableStudent.fxml"));
+            showPane.getChildren().setAll(paneStudent);
+        }
+
+        if (event.getSource() == buttonSubject) {
+            labelTitle.setText("Disciplinas Cadastradas");
+            AnchorPane paneSubject = FXMLLoader.load(this.getClass().getResource("../views/tableSubject.fxml"));
+            showPane.getChildren().setAll(paneSubject);
+        }
+
+        if (event.getSource() == buttonEnroll) {
+            labelTitle.setText("Matricular um aluno");
+            AnchorPane paneEnroll = FXMLLoader.load(this.getClass().getResource("../views/enroll.fxml"));
+            showPane.getChildren().setAll(paneEnroll);
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            showAlunos();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public ObservableList<Alunos> getAlunosList() throws Exception {
@@ -68,18 +93,6 @@ public class DashboardController implements Initializable {
 
     }
 
-    public void showAlunos() throws Exception {
-        ObservableList<Alunos> list = getAlunosList();
-
-        columnName.setCellValueFactory(new PropertyValueFactory<Alunos, String>("nome"));
-        columnAge.setCellValueFactory(new PropertyValueFactory<Alunos, Integer>("idade"));
-        columnCell.setCellValueFactory(new PropertyValueFactory<Alunos, Integer>("telefone"));
-        columnParentCell.setCellValueFactory(new PropertyValueFactory<Alunos, Integer>("telefonePais"));
-
-        tableStudents.setItems(list);
-
-    }
-
     private void executeQuery(String query) throws Exception {
         Connection conn;
         conn = ConnectionFactory.connectToMySql();
@@ -94,6 +107,5 @@ public class DashboardController implements Initializable {
         }
 
     }
-
 
 }

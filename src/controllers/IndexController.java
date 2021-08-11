@@ -1,15 +1,12 @@
 package controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import models.Alunos;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,52 +14,33 @@ import java.util.ResourceBundle;
 
 public class IndexController implements Initializable {
 
-    private Label label;
     @FXML
-    private TextField tfId;
+    private Button buttonNewStudent;
     @FXML
-    private TextField tfMatricula;
+    private Button buttonNewSubject;
     @FXML
-    private TextField tfNome;
+    private Button buttonEnter;
     @FXML
-    private TextField tfIdade;
-    @FXML
-    private TableView<Alunos> tvAlunos;
-    @FXML
-    private TableColumn<Alunos, Integer> colId;
-    @FXML
-    private TableColumn<Alunos, Integer> colMatricula;
-    @FXML
-    private TableColumn<Alunos, String> colNome;
-    @FXML
-    private TableColumn<Alunos, Integer> colIdade;
-    @FXML
-    private Button btnEnter;
-    @FXML
-    private Button btnAtualizar;
-    @FXML
-    private Button btnExcluir;
-
-    private Stage stage;
-
-    private Scene scene;
-
     private Parent root;
 
-    public void switchToScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("../views/registerSubject.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void handleButtonAction(javafx.event.ActionEvent event) throws IOException {
+        if (event.getSource() == buttonEnter) {
+            root = FXMLLoader.load(getClass().getResource("../views/dashboard.fxml"));
+            Stage window = (Stage) buttonEnter.getScene().getWindow();
+            window.setScene(new Scene(root));
+        }
 
-    public void switchToSceneDashboard(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("../views/dashboard.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (event.getSource() == buttonNewSubject) {
+            root = FXMLLoader.load(getClass().getResource("../views/registerSubject.fxml"));
+            Stage window = (Stage) buttonNewSubject.getScene().getWindow();
+            window.setScene(new Scene(root));
+        }
+
+        if (event.getSource() == buttonNewStudent) {
+            root = FXMLLoader.load(getClass().getResource("../views/registerStudent.fxml"));
+            Stage window = (Stage) buttonNewStudent.getScene().getWindow();
+            window.setScene(new Scene(root));
+        }
     }
 
     @Override

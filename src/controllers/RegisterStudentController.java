@@ -1,5 +1,6 @@
 package controllers;
 
+import com.mysql.cj.jdbc.JdbcPreparedStatement;
 import database.ConnectionFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,18 +19,31 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class RegisterSubjectController implements Initializable {
+public class RegisterStudentController implements Initializable {
 
+    private Label label;
     @FXML
     private TextField textFieldName;
     @FXML
-    private TextField textFieldType;
+    private TextField textFieldAge;
     @FXML
-    private TextField textFieldTime;
+    private TextField textFieldPhone;
     @FXML
-    private TextField textFieldPeriod;
+    private TextField textFieldParentsPhone;
     @FXML
-    private Button buttonNewSubject;
+    private TableColumn<Alunos, Integer> colId;
+    @FXML
+    private TableColumn<Alunos, Integer> colMatricula;
+    @FXML
+    private TableColumn<Alunos, String> colNome;
+    @FXML
+    private TableColumn<Alunos, Integer> colIdade;
+    @FXML
+    private Button btnNewStudent;
+    @FXML
+    private Button btnAtualizar;
+    @FXML
+    private Button btnExcluir;
     @FXML
     private Stage stage;
     @FXML
@@ -49,7 +63,7 @@ public class RegisterSubjectController implements Initializable {
     @FXML
     public void switchBack() throws IOException {
         root = FXMLLoader.load(getClass().getResource("../views/dashboard.fxml"));
-        Stage window = (Stage) buttonNewSubject.getScene().getWindow();
+        Stage window = (Stage) btnNewStudent.getScene().getWindow();
         window.setScene(new Scene(root));
 
     }
@@ -66,14 +80,41 @@ public class RegisterSubjectController implements Initializable {
 
     private void Information() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Disciplina cadastrado com sucesso!");
+        alert.setContentText("Aluno cadastrado com sucesso!");
         alert.showAndWait();
     }
 
+    private String generateMatricula() {
+        String matricula = "20210800";
+        String digito = "1";
+
+        String prefixoString = matricula.substring(0, 6);
+
+        String sufixoString = matricula.substring(matricula.length() - 1);
+        int prefixoInt = Integer.parseInt(prefixoString);
+
+
+        if (sufixoString.equals("9")) {
+            sufixoString = "X";
+        } else if (sufixoString.equals("X")) {
+            sufixoString = "0";
+            prefixoInt += 1;
+        } else {
+            int sufixoInt = Integer.parseInt(sufixoString);
+            sufixoString = String.valueOf(sufixoInt + 1);
+        }
+
+        String novaMatricula = prefixoInt + digito + sufixoString;
+
+        return novaMatricula;
+
+    }
+
+
     private void insertRecord() throws Exception {
-        String query = "INSERT INTO disciplina(nome, tipo, cargaHorario, periodo) VALUES " +
-                "('" + textFieldName.getText() + "','" + textFieldType.getText()
-                + "','" + textFieldTime.getText() + "','" + textFieldPeriod.getText() + "')";
+        String query = "INSERT INTO alunos(matricula, nome, idade, telefone, telefonePais) VALUES " +
+                "('" + generateMatricula() + "','" + textFieldName.getText()
+                + "','" + textFieldAge.getText() + "','" + textFieldPhone.getText() + "','" + textFieldParentsPhone.getText() + "')";
 
         System.out.println(query);
 
