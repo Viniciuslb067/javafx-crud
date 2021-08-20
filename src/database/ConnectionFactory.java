@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class ConnectionFactory {
 
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "admin";
+    private static final String PASSWORD = "123";
     private static final String URL = "jdbc:mysql://localhost:3306/database?useTimezone=true&serverTimezone=UTC";
 
     public static Connection connectToMySql() throws Exception {

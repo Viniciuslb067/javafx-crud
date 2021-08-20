@@ -1,6 +1,5 @@
 package controllers;
 
-import com.mysql.cj.jdbc.JdbcPreparedStatement;
 import database.ConnectionFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

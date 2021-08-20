@@ -1,8 +1,5 @@
 package controllers;
 
-import database.ConnectionFactory;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,11 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import models.Alunos;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
@@ -29,6 +24,8 @@ public class DashboardController implements Initializable {
     private Button buttonSubject;
     @FXML
     private Button buttonEnroll;
+    @FXML
+    private Button buttonShow;
     @FXML
     private AnchorPane showPane;
     @FXML
@@ -64,48 +61,14 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    }
-
-    public ObservableList<Alunos> getAlunosList() throws Exception {
-        ObservableList<Alunos> alunoList = FXCollections.observableArrayList();
-        Connection conn = ConnectionFactory.connectToMySql();
-        String query = "SELECT * FROM alunos";
-
-        Statement st;
-        ResultSet rs;
-
+        labelTitle.setText("Matriculados");
+        AnchorPane paneEnroll = null;
         try {
-            st = conn.createStatement();
-            rs = st.executeQuery(query);
-
-            Alunos alunos;
-
-            while (rs.next()) {
-                alunos = new Alunos(rs.getInt("id"), rs.getInt("matricula"), rs.getString("nome"), rs.getInt("idade"), rs.getInt("telefone"), rs.getInt("telefonePais"));
-                alunoList.add(alunos);
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            paneEnroll = FXMLLoader.load(this.getClass().getResource("../views/tableEnroll.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        return alunoList;
-
-    }
-
-    private void executeQuery(String query) throws Exception {
-        Connection conn;
-        conn = ConnectionFactory.connectToMySql();
-
-        Statement st;
-
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
+        showPane.getChildren().setAll(paneEnroll);
     }
 
 }
