@@ -6,10 +6,10 @@ public class Alunos {
     private Integer matricula;
     private String nome;
     private Integer idade;
-    private Integer telefone;
-    private Integer telefonePais;
+    private Long telefone;
+    private Long telefonePais;
 
-    public Alunos(Integer id, Integer matricula, String nome, Integer idade, Integer telefone, Integer telefonePais) {
+    public Alunos(Integer id, Integer matricula, String nome, Integer idade, Long telefone, Long telefonePais) {
         this.id = id;
         this.matricula = matricula;
         this.nome = nome;
@@ -34,11 +34,11 @@ public class Alunos {
         return idade;
     }
 
-    public Integer getTelefone() {
+    public Long getTelefone() {
         return telefone;
     }
 
-    public Integer getTelefonePais() {
+    public Long getTelefonePais() {
         return telefonePais;
     }
 }

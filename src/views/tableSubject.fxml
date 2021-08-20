@@ -8,7 +8,7 @@
    <children>
        <TableView fx:id="tableSubject" prefHeight="628.0" prefWidth="977.0">
         <columns>
-            <TableColumn fx:id="columnName" prefWidth="346.0" text="Nome" />
+            <TableColumn fx:id="columnName" prefWidth="346.0" text="Disciplina" />
             <TableColumn fx:id="columnType" prefWidth="261.0" text="Tipo" />
             <TableColumn fx:id="columnTime" prefWidth="369.0" text="Carga Horário" />
         </columns>

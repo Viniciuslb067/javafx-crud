@@ -71,7 +71,7 @@ public class RegisterSubjectController implements Initializable {
     }
 
     private void insertRecord() throws Exception {
-        String query = "INSERT INTO disciplina(nome, tipo, cargaHorario, periodo) VALUES " +
+        String query = "INSERT INTO disciplina(disciplina, tipo, cargaHorario, periodo) VALUES " +
                 "('" + textFieldName.getText() + "','" + textFieldType.getText()
                 + "','" + textFieldTime.getText() + "','" + textFieldPeriod.getText() + "')";
 

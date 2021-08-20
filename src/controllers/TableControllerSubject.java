@@ -51,7 +51,7 @@ public class TableControllerSubject implements Initializable {
             Disciplinas disciplinas;
 
             while (rs.next()) {
-                disciplinas = new Disciplinas(rs.getInt("id"), rs.getString("nome"), rs.getString("tipo"), rs.getInt("cargaHorario"));
+                disciplinas = new Disciplinas(rs.getInt("id"), rs.getString("disciplina"), rs.getString("tipo"), rs.getInt("cargaHorario"));
                 subjectList.add(disciplinas);
             }
 
@@ -66,28 +66,11 @@ public class TableControllerSubject implements Initializable {
     public void showSubject() throws Exception {
         ObservableList<Disciplinas> list = getSubjectList();
 
-        columnName.setCellValueFactory(new PropertyValueFactory<Disciplinas, String>("nome"));
-        columnType.setCellValueFactory(new PropertyValueFactory<Disciplinas, String>("tipo"));
-        columnTime.setCellValueFactory(new PropertyValueFactory<Disciplinas, Integer>("cargaHorario"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        columnType.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        columnTime.setCellValueFactory(new PropertyValueFactory<>("cargaHorario"));
 
         tableSubject.setItems(list);
 
     }
-
-    private void executeQuery(String query) throws Exception {
-        Connection conn;
-        conn = ConnectionFactory.connectToMySql();
-
-        Statement st;
-
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-    }
-
-
 }

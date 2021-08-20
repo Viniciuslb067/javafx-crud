@@ -53,7 +53,7 @@ public class TableControllerStudent implements Initializable {
             Alunos alunos;
 
             while (rs.next()) {
-                alunos = new Alunos(rs.getInt("id"), rs.getInt("matricula"), rs.getString("nome"), rs.getInt("idade"), rs.getInt("telefone"), rs.getInt("telefonePais"));
+                alunos = new Alunos(rs.getInt("id"), rs.getInt("matricula"), rs.getString("nome"), rs.getInt("idade"), rs.getLong("telefone"), rs.getLong("telefonePais"));
                 alunoList.add(alunos);
             }
 
@@ -68,29 +68,12 @@ public class TableControllerStudent implements Initializable {
     public void showAlunos() throws Exception {
         ObservableList<Alunos> list = getAlunosList();
 
-        columnName.setCellValueFactory(new PropertyValueFactory<Alunos, String>("nome"));
-        columnAge.setCellValueFactory(new PropertyValueFactory<Alunos, Integer>("idade"));
-        columnCell.setCellValueFactory(new PropertyValueFactory<Alunos, Integer>("telefone"));
-        columnParentCell.setCellValueFactory(new PropertyValueFactory<Alunos, Integer>("telefonePais"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        columnAge.setCellValueFactory(new PropertyValueFactory<>("idade"));
+        columnCell.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+        columnParentCell.setCellValueFactory(new PropertyValueFactory<>("telefonePais"));
 
         tableStudents.setItems(list);
 
     }
-
-    private void executeQuery(String query) throws Exception {
-        Connection conn;
-        conn = ConnectionFactory.connectToMySql();
-
-        Statement st;
-
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-    }
-
-
 }

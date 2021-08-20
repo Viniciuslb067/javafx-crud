@@ -114,7 +114,7 @@ public class Controller implements Initializable {
             Alunos alunos;
 
             while (rs.next()) {
-                alunos = new Alunos(rs.getInt("id"), rs.getInt("matricula"), rs.getString("nome"), rs.getInt("idade"), rs.getInt("telefone"), rs.getInt("telefonePais") );
+                alunos = new Alunos(rs.getInt("id"), rs.getInt("matricula"), rs.getString("nome"), rs.getInt("idade"), rs.getLong("telefone"), rs.getLong("telefonePais") );
                 alunoList.add(alunos);
             }
 

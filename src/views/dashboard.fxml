@@ -51,7 +51,7 @@
                 </VBox>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="200.0" prefHeight="94.0" prefWidth="1037.0">
+        <AnchorPane layoutX="200.0" prefHeight="73.0" prefWidth="1037.0">
             <children>
                 <Label fx:id="labelTitle" layoutX="53.0" layoutY="21.0" text="Alunos cadastrados">
                     <font>

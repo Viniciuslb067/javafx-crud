@@ -3,27 +3,35 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="628.0" prefWidth="986.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.EnrollController">
+<AnchorPane prefHeight="711.0" prefWidth="986.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.EnrollController">
    <children>
-      <ChoiceBox fx:id="choiceBoxStudent" layoutX="526.0" layoutY="131.0" prefHeight="25.0" prefWidth="408.0" />
-      <Button fx:id="buttonEnroll" onAction="#handleButtonAction" layoutX="409.0" layoutY="509.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="169.0" style="-fx-background-color: #38b6ff;" text="Matricular" textFill="WHITE">
+      <ChoiceBox fx:id="choiceBoxSubject" layoutX="526.0" layoutY="84.0" prefHeight="25.0" prefWidth="408.0" />
+      <Button fx:id="buttonEnroll" layoutX="409.0" layoutY="509.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="74.0" prefWidth="169.0" style="-fx-background-color: #38b6ff;" text="Matricular" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="choiceBoxSubject" layoutX="43.0" layoutY="132.0" prefHeight="25.0" prefWidth="408.0" />
-      <Label layoutX="181.0" layoutY="62.0" text="Alunos">
+      <ChoiceBox fx:id="choiceBoxStudent" layoutX="43.0" layoutY="83.0" prefHeight="25.0" prefWidth="408.0" />
+      <Label layoutX="651.0" layoutY="26.0" text="Alunos">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
-      <Label layoutX="651.0" layoutY="62.0" text="Disciplinas">
+         <Label layoutX="181.0" layoutY="26.0" text="Disciplinas">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
+      <TableView fx:id="tableEnroll" layoutX="45.0" layoutY="126.0" prefHeight="366.0" prefWidth="893.0">
+         <columns>
+            <TableColumn fx:id="columnSubject" prefWidth="446.0" text="Disciplina" />
+            <TableColumn fx:id="columnStudent" prefWidth="446.0" text="Aluno" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
