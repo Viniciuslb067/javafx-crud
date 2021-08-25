@@ -35,7 +35,7 @@ public class TableEnrollController implements Initializable {
         }
     }
 
-    public ObservableList<Matriculas> getEnrollment() throws  Exception {
+    public ObservableList<Matriculas> getEnrollment() throws Exception {
         ObservableList<Matriculas> enrollmentList = FXCollections.observableArrayList();
         Connection conn = ConnectionFactory.connectToMySql();
         String query = "SELECT a.nome, d.disciplina FROM alunos AS a INNER JOIN matricula AS m ON (a.id = m.id_aluno) " +
@@ -51,7 +51,7 @@ public class TableEnrollController implements Initializable {
             Matriculas matriculas;
 
             while (rs.next()) {
-                matriculas = new Matriculas(rs.getString("nome"),rs.getString("disciplina"));
+                matriculas = new Matriculas(rs.getString("nome"), rs.getString("disciplina"));
                 enrollmentList.add(matriculas);
             }
 

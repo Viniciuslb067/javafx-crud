@@ -70,5 +70,4 @@ public class DashboardController implements Initializable {
         }
         showPane.getChildren().setAll(paneEnroll);
     }
-
 }

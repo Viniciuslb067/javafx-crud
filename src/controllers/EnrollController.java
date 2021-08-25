@@ -3,7 +3,6 @@ package controllers;
 import database.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -41,10 +40,6 @@ public class EnrollController implements Initializable {
     private TableColumn<Matriculas, String> columnStudent;
     @FXML
     private Button buttonEnroll;
-    @FXML
-    private Stage stage;
-    @FXML
-    private Scene scene;
     @FXML
     private Parent root;
 

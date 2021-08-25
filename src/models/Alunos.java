@@ -2,12 +2,12 @@ package models;
 
 public class Alunos {
 
-    private Integer id;
-    private Integer matricula;
-    private String nome;
-    private Integer idade;
-    private Long telefone;
-    private Long telefonePais;
+    private final Integer id;
+    private final Integer matricula;
+    private final String nome;
+    private final Integer idade;
+    private final Long telefone;
+    private final Long telefonePais;
 
     public Alunos(Integer id, Integer matricula, String nome, Integer idade, Long telefone, Long telefonePais) {
         this.id = id;

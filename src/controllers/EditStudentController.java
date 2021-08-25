@@ -5,13 +5,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import models.Alunos;
-import utils.StudentData;
+import utils.Data;
 
 import java.io.IOException;
 import java.net.URL;
@@ -57,11 +57,11 @@ public class EditStudentController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        id = StudentData.studentId;
-        textFieldName.setText(StudentData.studentName);
-        textFieldAge.setText(String.valueOf(StudentData.studentAge));
-        textFieldPhone.setText(String.valueOf(StudentData.studentPhone));
-        textFieldParentsPhone.setText(String.valueOf(StudentData.studentParentsPhone));
+        id = Data.studentId;
+        textFieldName.setText(Data.studentName);
+        textFieldAge.setText(String.valueOf(Data.studentAge));
+        textFieldPhone.setText(String.valueOf(Data.studentPhone));
+        textFieldParentsPhone.setText(String.valueOf(Data.studentParentsPhone));
     }
 
     private void Information() {
@@ -78,8 +78,8 @@ public class EditStudentController implements Initializable {
     }
 
     private void updateById() throws Exception {
-        String query = "UPDATE alunos SET nome = '"+ textFieldName.getText() +
-                "',idade = '"+ textFieldAge.getText() + "',telefone = '" + textFieldPhone.getText() +
+        String query = "UPDATE alunos SET nome = '" + textFieldName.getText() +
+                "',idade = '" + textFieldAge.getText() + "',telefone = '" + textFieldPhone.getText() +
                 "',telefonePais = '" + textFieldParentsPhone.getText() + "' WHERE id = '" + id + "'";
         executeQuery(query);
         Information();

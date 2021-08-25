@@ -30,19 +30,7 @@ public class RegisterStudentController implements Initializable {
     @FXML
     private TextField textFieldParentsPhone;
     @FXML
-    private TableColumn<Alunos, Integer> colId;
-    @FXML
-    private TableColumn<Alunos, Integer> colMatricula;
-    @FXML
-    private TableColumn<Alunos, String> colNome;
-    @FXML
-    private TableColumn<Alunos, Integer> colIdade;
-    @FXML
     private Button btnNewStudent;
-    @FXML
-    private Button btnAtualizar;
-    @FXML
-    private Button btnExcluir;
     @FXML
     private Stage stage;
     @FXML

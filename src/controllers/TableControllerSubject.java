@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import models.Disciplinas;
-import utils.StudentData;
+import utils.Data;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +33,8 @@ public class TableControllerSubject implements Initializable {
     private TableColumn<Disciplinas, String> columnType;
     @FXML
     private TableColumn<Disciplinas, Integer> columnTime;
+    @FXML
+    private TableColumn<Disciplinas, Integer> columPeriod;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -78,6 +80,7 @@ public class TableControllerSubject implements Initializable {
         columnName.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnType.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         columnTime.setCellValueFactory(new PropertyValueFactory<>("cargaHorario"));
+        columPeriod.setCellValueFactory(new PropertyValueFactory<>("periodo"));
 
         tableSubject.setItems(list);
 
@@ -86,12 +89,13 @@ public class TableControllerSubject implements Initializable {
     public void handleClick(MouseEvent mouseEvent) throws IOException {
         Disciplinas disciplina = tableSubject.getSelectionModel().getSelectedItem();
 
-        StudentData.subjectId = disciplina.getId();
-        StudentData.subjectName = disciplina.getNome();
-        StudentData.subjectType = disciplina.getTipo();
-        StudentData.subjectTime = disciplina.getCargaHorario();
+        Data.subjectId = disciplina.getId();
+        Data.subjectName = disciplina.getNome();
+        Data.subjectType = disciplina.getTipo();
+        Data.subjectTime = disciplina.getCargaHorario();
+        Data.subjectPeriod = disciplina.getPeriodo();
 
-        if(mouseEvent.getClickCount() == 2) {
+        if (mouseEvent.getClickCount() == 2) {
             AnchorPane panelTwo = FXMLLoader.load(getClass().getResource("../views/editSubject.fxml"));
             subjectPanel.getChildren().removeAll();
             subjectPanel.getChildren().setAll(panelTwo);

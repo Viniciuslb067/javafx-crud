@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import models.Alunos;
-import utils.StudentData;
+import utils.Data;
 
 import java.io.IOException;
 import java.net.URL;
@@ -87,14 +87,14 @@ public class TableControllerStudent implements Initializable {
     public void handleClick(MouseEvent mouseEvent) throws IOException {
         Alunos aluno = tableStudents.getSelectionModel().getSelectedItem();
 
-        StudentData.studentId = aluno.getId();
+        Data.studentId = aluno.getId();
         System.out.println(aluno.getId());
-        StudentData.studentName = aluno.getNome();
-        StudentData.studentAge = aluno.getIdade();
-        StudentData.studentPhone = aluno.getTelefone();
-        StudentData.studentParentsPhone = aluno.getTelefonePais();
+        Data.studentName = aluno.getNome();
+        Data.studentAge = aluno.getIdade();
+        Data.studentPhone = aluno.getTelefone();
+        Data.studentParentsPhone = aluno.getTelefonePais();
 
-        if(mouseEvent.getClickCount() == 2) {
+        if (mouseEvent.getClickCount() == 2) {
             AnchorPane panelTwo = FXMLLoader.load(getClass().getResource("../views/editStudent.fxml"));
             studentPanel.getChildren().removeAll();
             studentPanel.getChildren().setAll(panelTwo);

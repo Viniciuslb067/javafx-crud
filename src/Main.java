@@ -9,8 +9,12 @@ public class Main extends Application {
 
     private double x, y;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("views/index.fxml"));
         primaryStage.setTitle("SGAD - Sistema de Gestão de Alunos e Disciplinas");
         primaryStage.setScene(new Scene(root));
@@ -26,10 +30,5 @@ public class Main extends Application {
             primaryStage.setY(event.getSceneY() - y);
         });
         primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

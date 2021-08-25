@@ -27,6 +27,4 @@ public class ConnectionFactory {
             e.printStackTrace();
         }
     }
-
-
 }

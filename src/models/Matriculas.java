@@ -2,8 +2,8 @@ package models;
 
 public class Matriculas {
 
-    private String nome;
-    private String disciplina;
+    private final String nome;
+    private final String disciplina;
 
     public Matriculas(String nome, String disciplina) {
         this.nome = nome;

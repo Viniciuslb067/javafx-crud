@@ -3,47 +3,55 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="763.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.IndexController">
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="509.0" prefWidth="763.0" xmlns="http://javafx.com/javafx"
+            fx:controller="controllers.IndexController">
     <left>
         <AnchorPane prefHeight="580.0" prefWidth="294.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="515.0" fitWidth="300.0" layoutX="-5.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/SGAD%20(1).png" />
-               </image>
-            </ImageView>
-         </children>
+            <children>
+                <ImageView fitHeight="515.0" fitWidth="300.0" layoutX="-5.0" layoutY="-1.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/SGAD%20(1).png"/>
+                    </image>
+                </ImageView>
+            </children>
         </AnchorPane>
     </left>
-   <center>
-        <AnchorPane prefHeight="400.0" prefWidth="763.0" style="-fx-background-color: #ECECE7;" BorderPane.alignment="CENTER">
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="763.0" style="-fx-background-color: #ECECE7;"
+                    BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="buttonNewStudent" layoutX="94.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="52.0" prefWidth="274.0" style="-fx-background-color: #38b6ff;" text="Cadastrar novo aluno" textFill="WHITE" >
+                <Button fx:id="buttonNewStudent" layoutX="94.0" layoutY="283.0" mnemonicParsing="false"
+                        onAction="#handleButtonAction" prefHeight="52.0" prefWidth="274.0"
+                        style="-fx-background-color: #38b6ff;" text="Cadastrar novo aluno" textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="17.0" />
+                        <Font name="System Bold" size="17.0"/>
                     </font>
                 </Button>
-                <Button fx:id="buttonNewSubject" layoutX="91.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="53.0" prefWidth="279.0" style="-fx-background-color: #38b6ff;" text="Cadastrar nova disciplina" textAlignment="CENTER" textFill="WHITE">
+                <Button fx:id="buttonNewSubject" layoutX="91.0" layoutY="211.0" mnemonicParsing="false"
+                        onAction="#handleButtonAction" prefHeight="53.0" prefWidth="279.0"
+                        style="-fx-background-color: #38b6ff;" text="Cadastrar nova disciplina" textAlignment="CENTER"
+                        textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="17.0" />
+                        <Font name="System Bold" size="17.0"/>
                     </font>
                 </Button>
-                <Button fx:id="buttonEnter" layoutX="164.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="141.0" style="-fx-background-color: #38b6ff;" text="Entrar" textFill="WHITE">
+                <Button fx:id="buttonEnter" layoutX="164.0" layoutY="143.0" mnemonicParsing="false"
+                        onAction="#handleButtonAction" prefHeight="50.0" prefWidth="141.0"
+                        style="-fx-background-color: #38b6ff;" text="Entrar" textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="17.0" />
+                        <Font name="System Bold" size="17.0"/>
                     </font>
                 </Button>
                 <Text layoutX="207.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olá">
                     <font>
-                        <Font name="System Bold Italic" size="36.0" />
+                        <Font name="System Bold Italic" size="36.0"/>
                     </font>
                 </Text>
             </children>
         </AnchorPane>
-   </center>
+    </center>
 </BorderPane>

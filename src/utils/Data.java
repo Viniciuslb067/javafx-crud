@@ -1,6 +1,6 @@
 package utils;
 
-public class StudentData {
+public class Data {
 
     public static Integer studentId = 0;
     public static String studentName = "";

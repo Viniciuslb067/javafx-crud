@@ -2,11 +2,11 @@ package models;
 
 public class Disciplinas {
 
-    private Integer id;
-    private String nome;
-    private String tipo;
-    private Integer cargaHorario;
-    private Integer periodo;
+    private final Integer id;
+    private final String nome;
+    private final String tipo;
+    private final Integer cargaHorario;
+    private final Integer periodo;
 
     public Disciplinas(Integer id, String nome, String tipo, Integer cargaHorario, Integer periodo) {
         this.id = id;
