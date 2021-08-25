@@ -115,7 +115,9 @@ public class EnrollController implements Initializable {
             Disciplinas disciplinas;
 
             while (rs.next()) {
-                disciplinas = new Disciplinas(rs.getInt("id"), rs.getString("disciplina"), rs.getString("tipo"), rs.getInt("cargaHorario"));
+                disciplinas = new Disciplinas(rs.getInt("id"), rs.getString("disciplina"),
+                        rs.getString("tipo"), rs.getInt("cargaHorario"),
+                        rs.getInt("periodo"));
                 subjectList.add(disciplinas);
             }
 

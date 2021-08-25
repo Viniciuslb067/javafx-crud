@@ -4,12 +4,17 @@ import database.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import models.Alunos;
+import utils.StudentData;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,6 +23,8 @@ import java.util.ResourceBundle;
 
 public class TableControllerStudent implements Initializable {
 
+    @FXML
+    private AnchorPane studentPanel;
     @FXML
     private TableView<Alunos> tableStudents;
     @FXML
@@ -75,5 +82,22 @@ public class TableControllerStudent implements Initializable {
 
         tableStudents.setItems(list);
 
+    }
+
+    public void handleClick(MouseEvent mouseEvent) throws IOException {
+        Alunos aluno = tableStudents.getSelectionModel().getSelectedItem();
+
+        StudentData.studentId = aluno.getId();
+        System.out.println(aluno.getId());
+        StudentData.studentName = aluno.getNome();
+        StudentData.studentAge = aluno.getIdade();
+        StudentData.studentPhone = aluno.getTelefone();
+        StudentData.studentParentsPhone = aluno.getTelefonePais();
+
+        if(mouseEvent.getClickCount() == 2) {
+            AnchorPane panelTwo = FXMLLoader.load(getClass().getResource("../views/editStudent.fxml"));
+            studentPanel.getChildren().removeAll();
+            studentPanel.getChildren().setAll(panelTwo);
+        }
     }
 }

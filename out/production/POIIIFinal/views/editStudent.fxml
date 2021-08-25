@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="586.0" prefWidth="886.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.EditStudentController">
+    <children>
+        <Label layoutX="220.0" layoutY="87.0" prefHeight="21.0" prefWidth="57.0" text="Nome">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textFieldName" layoutX="220.0" layoutY="115.0" prefHeight="38.0" prefWidth="499.0" />
+        <Label layoutX="220.0" layoutY="162.0" prefHeight="21.0" prefWidth="48.0" text="Idade">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textFieldAge" layoutX="220.0" layoutY="194.0" prefHeight="38.0" prefWidth="499.0" />
+        <Label layoutX="220.0" layoutY="240.0" text="Telefone">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textFieldPhone" layoutX="220.0" layoutY="270.0" prefHeight="38.0" prefWidth="499.0" />
+        <Label layoutX="220.0" layoutY="318.0" text="Telefone do responsável">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textFieldParentsPhone" layoutX="220.0" layoutY="351.0" prefHeight="38.0" prefWidth="499.0" />
+        <Button fx:id="btnNewStudent" layoutX="264.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="37.0" prefWidth="411.0" style="-fx-background-color: green;" text="Editar" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="17.0" />
+            </font>
+        </Button>
+      <Button fx:id="btnDeleteStudent" layoutX="264.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="37.0" prefWidth="411.0" style="-fx-background-color: red;" text="Excluir" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="392.0" layoutY="8.0" prefHeight="70.0" prefWidth="136.0" text="Editar">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

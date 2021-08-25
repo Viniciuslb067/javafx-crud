@@ -41,7 +41,7 @@ public class DashboardController implements Initializable {
         }
 
         if (event.getSource() == buttonStudent) {
-            labelTitle.setText("Alunos Cadastradas");
+            labelTitle.setText("Alunos Cadastrados");
             AnchorPane paneStudent = FXMLLoader.load(this.getClass().getResource("../views/tableStudent.fxml"));
             showPane.getChildren().setAll(paneStudent);
         }
